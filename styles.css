@@ -1,0 +1,619 @@
+@font-face {
+    font-family: "Caveat";
+    src: url("assets/fonts/Caveat-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("assets/fonts/Caveat-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #fcf9f5;
+}
+
+header {
+    background-color: #fcf9f5;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: #5a9081;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 12px 18px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #f9eae5;
+    color: #333;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fcf9f5;
+    color: #333;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+/** hover buffer to prevent flickering of the dropdown */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: 10px;
+    width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    color: #3c7364;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+}
+
+
+.dropdown-content a:hover {
+    background-color: rgba(139, 192, 203, 0.1);
+    color: #3c7364;
+}
+
+.dropdown-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.dropdown-toggle {
+    display: none;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid #3c7364;
+    border-radius: 8px;
+    color: #245b4e;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 7px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    background-color: #f9eae5;
+    outline: none;
+}
+
+.hero {
+    background-image: url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    position: relative;
+    min-height: 750px;
+}
+
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #467548;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #a8caa9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about {
+    padding: 80px 20px;
+    background-color: #fcf9f5;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 66.67%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-text p {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    color: #3c7364;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.about-text h3 {
+    font-size: 20px;
+    color: #3c7364;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+
+.welcome-text {
+    margin: 1% 0 0 70%;
+    color: #173c32;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 1.4;
+}
+
+.qualifications {
+    list-style: none;
+    padding-left: 0;
+    columns: 2;
+    column-gap: 30px;
+}
+
+.qualifications li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    font-size: 16px;
+}
+
+.qualifications li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #5a9081;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.therapy-section {
+    padding: 40px 20px;
+    background-color: #fcf9f5;
+}
+
+.therapy-section h3 {
+    font-size: 22px;
+    color: #3c7364;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+
+.therapy-section p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.7;
+}
+
+.practice-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, minmax(170px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.practice-gallery img {
+    width: 100%;
+    height: 100%;
+    min-height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.practice-gallery-main {
+    grid-row: span 2;
+}
+
+/* Make 'Meine Leistungen' match the 'Therapieablauf' heading style */
+.services .section-title {
+    font-size: 22px;
+    color: #3c7364;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.services {
+    padding: 40px 20px;
+    background-color: #fcf9f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card-content {
+    padding: 30px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    color: #3c7364;
+    margin: 0;
+    font-size: 24px;
+}
+
+footer {
+    background-color: #5a9081;
+    color: #fcf9f5;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer a {
+    color: #fcf9f5;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    .header-container {
+        flex-wrap: nowrap;
+    }
+
+    .logo-img {
+        height: 42px;
+        margin-right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fcf9f5;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 20px 20px;
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
+        border-top: 1px solid #e8ddd4;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #e8ddd4;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        padding: 13px 6px;
+        border-radius: 0;
+        font-size: 17px;
+    }
+
+    .dropdown {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 48px;
+        align-items: center;
+    }
+
+    .dropdown .nav-link {
+        grid-column: 1;
+    }
+
+    .dropdown-arrow {
+        display: none;
+    }
+
+    .dropdown-toggle {
+        display: grid;
+        grid-column: 2;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #245b4e;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .dropdown-toggle:hover,
+    .dropdown-toggle:focus-visible {
+        background-color: #f9eae5;
+        outline: 2px solid #3c7364;
+        outline-offset: -2px;
+    }
+
+    .dropdown.open .dropdown-toggle span {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+        display: none;
+        grid-column: 1 / -1;
+        position: static;
+        box-shadow: none;
+        margin: 0 0 10px;
+        padding: 4px 0 6px 14px;
+        border-left: 3px solid #5a9081;
+        background: transparent;
+        font-size: 16px;
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.open:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 10px 8px;
+        border-radius: 6px;
+    }
+
+    .hero {
+        min-height: 540px;
+        padding: 30px 20px;
+        background-position: 42% center;
+    }
+
+    .welcome-text {
+        width: min(100%, 340px);
+        margin: 0 auto;
+        padding-top: 330px;
+        font-size: 24px;
+        line-height: 1.25;
+        text-align: center;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+
+    .about-image img {
+        display: block;
+        width: min(100%, 360px);
+        margin: 0 auto;
+    }
+
+    .practice-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+    }
+
+    .practice-gallery-main {
+        grid-row: auto;
+        min-height: 300px;
+    }
+
+    .qualifications {
+        columns: 1;
+    }
+
+    .about,
+    .therapy-section,
+    .services {
+        padding: 56px 20px;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card img {
+        height: 190px;
+    }
+
+    .service-card-content {
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 21px;
+    }
+
+    .content {
+        padding: 52px 20px;
+    }
+
+    .content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .therapy-image {
+        height: 260px;
+        margin: 22px 0;
+    }
+}
