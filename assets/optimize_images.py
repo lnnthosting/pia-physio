@@ -4,7 +4,9 @@ from PIL import Image
 
 
 ROOT = Path(__file__).parent
-OUTPUT = ROOT / "assets"
+# Original uploads stay in this folder. Optimized web copies are written beside
+# them with the `-web.jpg` suffix, so an uploaded photo is never overwritten.
+OUTPUT = ROOT
 
 # Keep enough pixels for high-density displays while avoiding camera-original sizes.
 IMAGES = {
@@ -21,8 +23,11 @@ IMAGES = {
     #"manuelle-therapie.JPG": ("manuelle-therapie.jpg", 1600, 80),
     #"tapen-small.png": ("kinesiotape.jpg", 900, 82),
     #"massage.png": ("massage.jpg", 687, 82),
-    "quaddeln.jpg" : ("quaddeln.jpg", 1600, 80),
-    "praxisraum-2.JPG" :  ("praxisraum-2.JPG", 1600, 80)
+    # New camera-original uploads. Their output names deliberately differ from
+    # the source names; update HTML to use the generated `-web.jpg` copy.
+    "neuraltherapie.jpg": ("neuraltherapie-web.jpg", 1000, 80),
+    "Praxisraum-1.jpg": ("praxisraum-1-web.jpg", 1600, 80),
+    "Praxisraum-2.jpg": ("praxisraum-2-web.jpg", 1600, 80),
 }
 
 
