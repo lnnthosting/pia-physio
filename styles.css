@@ -324,7 +324,23 @@ nav {
 }
 
 .practice-gallery-main {
+    grid-column: span 2;
     grid-row: span 2;
+}
+
+.arrival-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.arrival-gallery img {
+    width: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Make 'Meine Leistungen' match the 'Therapieablauf' heading style */
@@ -568,8 +584,13 @@ footer a:hover {
     }
 
     .practice-gallery-main {
+        grid-column: auto;
         grid-row: auto;
         min-height: 300px;
+    }
+
+    .arrival-gallery {
+        grid-template-columns: 1fr;
     }
 
     .qualifications {
